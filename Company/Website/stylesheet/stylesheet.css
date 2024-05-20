@@ -2,6 +2,26 @@
     border-radius: 50%;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: white;
+    background-color: black;
+}
+
+.nav-link:hover {
+    color: white;
+    background-color: silver;
+}
+
+.nav-link {
+    color: black;
+}
+
 .feature-img {
     border-radius: 5%;
+}
+
+.cst {
+    width: 18rem;
+    margin-left: 10px;
 }
