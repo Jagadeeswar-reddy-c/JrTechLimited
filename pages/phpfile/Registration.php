@@ -1,11 +1,13 @@
 <?php
 // Include PHPMailer classes
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// Load Composer's autoloader
-require 'vendor/autoload.php';
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
+
+$feedback_message = '';
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -25,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->Host       = 'smtp.example.com';  // Replace with your SMTP server
+        $mail->Host       = 'smtp.gmail.com';  // Replace with your SMTP server
         $mail->SMTPAuth   = true;
         $mail->Username   = '209y1a0542@ksrmce.ac.in';  // Replace with your email
         $mail->Password   = 'zmblytabnyumeiil';  // Replace with your password
@@ -35,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = 465;
 
         //Recipients
-        $mail->setFrom('from@example.com', 'Mailer');
+        $mail->setFrom('209y1a0542@ksrmce.ac.in', 'Mailer');
         $mail->addAddress($email, "$firstName $lastName");  // Send to user email
-        $mail->addBCC('admin@example.com');  // Optional: Send a copy to admin
+        $mail->addBCC('209y1a0542@ksrmce.ac.in');  // Optional: Send a copy to admin
 
         // Content
         $mail->isHTML(true);
@@ -57,9 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->AltBody = 'This is the plain text version of the message body';
 
         $mail->send();
-        echo 'Message has been sent';
+        // echo 'Message has been sent';
+        // Set the success message
+        // $feedback_message = "Message has been sent. Please check your email.";
+        header("Location: ../getback.html");
+        exit(); // Make sure to exit after redirection
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        header("Location: ../getback.html");
+        exit(); // Make sure to exit after redirection
     }
 }
 ?>

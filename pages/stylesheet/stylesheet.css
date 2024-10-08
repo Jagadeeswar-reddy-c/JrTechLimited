@@ -33,3 +33,40 @@
     background-color: #f9f9f9;
     border-top: .05rem solid #e5e5e5;
 }
+
+
+/* Sticky footer styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#footer {
+    width: 100%;
+    background-color: #f8f9fa;
+    /* Light gray background for footer */
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer-content {
+    margin-top: auto;
+}
+
+.container {
+    flex: 1;
+    /* Makes sure the content takes up available space */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
