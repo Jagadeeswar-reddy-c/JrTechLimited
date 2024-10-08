@@ -12,7 +12,25 @@
 
 <body>
 
-    <div id="header"></div>
+    <!-- Header -->
+    <section id="Header">
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb border-bottom">
+                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <img class="logo" src="./images/JR Logo.png" alt="Jr Logo" width="50" height="50" />
+                    <span class="fs-4"> Jr Tech</span>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="#" class="nav-link index" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="./pages/Aboutus.html" class="nav-link about">About</a></li>
+                    <li class="nav-item"><a href="./pages/Privacy_terms.html" class="nav-link features">Features</a></li>
+                    <li class="nav-item"><a href="./pages/contactus.html" class="nav-link contact">Contact us</a></li>
+                </ul>
+            </header>
+        </div>
+    </section>
+
 
     <!-- Slider -->
     <section>
@@ -20,9 +38,6 @@
         <!-- Background image -->
         <div class="card">
             <img class="card-img-top" src="./images/Slider/ART.png" alt="">
-            <!-- <div class="card-img-overlay col-md-5 p-lg-5 mx-auto my-5">
-                <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-            </div> -->
         </div>
     </section>
 
@@ -126,25 +141,16 @@
     </section>
 
 
-
+    <!-- Cards section -->
     <div class="cards">
     </div>
 
+
+    <!-- Footer section -->
     <div id="footer"></div>
 
 
-
     <script>
-        fetch('./pages/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-
-                // Dynamically adjust the logo path
-                const logo = document.querySelector('.logo');
-                logo.src = window.location.pathname.includes('pages') ? '../images/JR Logo.png' : './images/JR Logo.png';
-            });
-
         fetch('./pages/footer.html').then(response => response.text()).then(data1 => {
             document.getElementById('footer').innerHTML = data1;
         });

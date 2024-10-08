@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enquiry Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="./stylesheet/stylesheet.css" rel="stylesheet" />
+
+</head>
+
+<body class="bg-light">
+
+    <div id="header"></div>
+
+    <br>
+
+    <div class="container">
+        <main>
+            <div class=" text-center">
+                <img class="d-block mx-auto mb-4" src="../images/JR Logo.png" alt="JR Logo" width="100" height="100" style="border-radius: 50%;">
+                <h2>Enquiry form</h2>
+                <p class="lead">We value your interest and would love to assist you with any inquiries you may have. Please fill out the form below, and one of our team members will get back to you as soon as possible.</p>
+            </div>
+
+            <div>
+                <h4 class="mb-3 text-center">Enquiry Details</h4>
+                <form class="needs-validation" novalidate="" method="POST" action="./phpfile/Registration.php">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="education" class="form-label">Education</label>
+                            <select class="form-select" id="education" name="education" required>
+                                <option value="">Choose...</option>
+                                <option>10th class</option>
+                                <option>12th class (First Year)</option>
+                                <option>12th class (Second Year)</option>
+                                <option>B.Tech (1st Year)</option>
+                                <option>B.Tech (2nd Year)</option>
+                                <option>B.Tech (3rd Year)</option>
+                                <option>B.Tech (4th Year)</option>
+                                <option>Degree (1st Year)</option>
+                                <option>Degree (2nd Year)</option>
+                                <option>Degree (3rd Year)</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid education level.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="branch" class="form-label">Branch</label>
+                            <select class="form-select" id="branch" name="branch" required>
+                                <option value="">Choose...</option>
+                                <option>AI & ML (DS/DA)</option>
+                                <option>CSE</option>
+                                <option>ECE</option>
+                                <option>EEE</option>
+                                <option>Mech</option>
+                                <option>Civil</option>
+                                <option>Others</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid branch.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="college" class="form-label">College</label>
+                            <input type="text" class="form-control" id="college" name="college" placeholder="... Engineering College" required>
+                            <div class="invalid-feedback">
+                                Please enter your college name.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="project" class="form-label">Project Type</label>
+                            <select class="form-select" id="project" name="project" required>
+                                <option value="">Choose...</option>
+                                <option>Software Development</option>
+                                <option>Web Development</option>
+                                <option>Mobile App Development</option>
+                                <option>Artificial Intelligence & Machine Learning</option>
+                                <option>Internet of Things (IoT)</option>
+                                <option>Data Science & Analytics</option>
+                                <option>Robotics</option>
+                                <option>Smart Agriculture</option>
+                                <option>Others</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid project type.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="period" class="form-label">Project Duration</label>
+                            <select class="form-select" id="period" name="period" required>
+                                <option value="">Choose...</option>
+                                <option>Less than 2 months</option>
+                                <option>2-4 months</option>
+                                <option>More than 4 months</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid project duration.
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="discription">Brief Project Description</label>
+                            <textarea class="form-control" id="discription" name="discription" rows="3"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="project_goals">Project Goals</label>
+                            <textarea class="form-control" id="project_goals" name="project_goals" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <br>
+
+    <div id="footer"></div>
+
+    <script>
+        // Dynamically load header and footer
+        fetch('./header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+
+                const logo = document.querySelector('.logo');
+                logo.src = window.location.pathname.includes('pages') ? '../images/JR Logo.png' : './images/JR Logo.png';
+            });
+
+        fetch('./footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer').innerHTML = data;
+        });
+    </script>
+
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="form-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
