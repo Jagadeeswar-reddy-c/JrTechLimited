@@ -37,23 +37,6 @@
     <footer id="footer" class="mt-auto"></footer>
     <!-- Updated Footer -->
 
-    <script>
-        fetch('./header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
-
-                // Dynamically adjust the logo path
-                const logo = document.querySelector('.logo');
-                if (logo) {
-                    logo.src = window.location.pathname.includes('pages') ? '../images/JR Logo.png' : './images/JR Logo.png';
-                }
-            });
-
-        fetch('./footer.html').then(response => response.text()).then(data => {
-            document.getElementById('footer').innerHTML = data;
-        });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

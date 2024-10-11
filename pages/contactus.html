@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Enquiry Form</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./stylesheet/stylesheet.css" rel="stylesheet" />
-
 </head>
 
 <body class="bg-light">
@@ -19,7 +18,7 @@
 
     <div class="container">
         <main>
-            <div class=" text-center">
+            <div class="text-center">
                 <img class="d-block mx-auto mb-4" src="../images/JR Logo.png" alt="JR Logo" width="100" height="100" style="border-radius: 50%;">
                 <h2>Enquiry form</h2>
                 <p class="lead">We value your interest and would love to assist you with any inquiries you may have. Please fill out the form below, and one of our team members will get back to you as soon as possible.</p>
@@ -27,30 +26,24 @@
 
             <div>
                 <h4 class="mb-3 text-center">Enquiry Details</h4>
-                <form class="needs-validation" novalidate="" method="POST" action="./phpfile/Registration.php">
+                <form id="registration-form" class="needs-validation">
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">First name</label>
                             <input type="text" class="form-control" id="firstName" name="firstName" required>
-                            <div class="invalid-feedback">
-                                Valid first name is required.
-                            </div>
+                            <div class="invalid-feedback">Valid first name is required.</div>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last name</label>
                             <input type="text" class="form-control" id="lastName" name="lastName" required>
-                            <div class="invalid-feedback">
-                                Valid last name is required.
-                            </div>
+                            <div class="invalid-feedback">Valid last name is required.</div>
                         </div>
 
                         <div class="col-12">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid email address.
-                            </div>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
                         </div>
 
                         <div class="col-md-6">
@@ -68,9 +61,7 @@
                                 <option>Degree (2nd Year)</option>
                                 <option>Degree (3rd Year)</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Please select a valid education level.
-                            </div>
+                            <div class="invalid-feedback">Please select a valid education level.</div>
                         </div>
 
                         <div class="col-md-6">
@@ -85,17 +76,13 @@
                                 <option>Civil</option>
                                 <option>Others</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Please select a valid branch.
-                            </div>
+                            <div class="invalid-feedback">Please select a valid branch.</div>
                         </div>
 
                         <div class="col-12">
                             <label for="college" class="form-label">College</label>
                             <input type="text" class="form-control" id="college" name="college" placeholder="... Engineering College" required>
-                            <div class="invalid-feedback">
-                                Please enter your college name.
-                            </div>
+                            <div class="invalid-feedback">Please enter your college name.</div>
                         </div>
 
                         <div class="col-md-6">
@@ -112,9 +99,7 @@
                                 <option>Smart Agriculture</option>
                                 <option>Others</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Please select a valid project type.
-                            </div>
+                            <div class="invalid-feedback">Please select a valid project type.</div>
                         </div>
 
                         <div class="col-md-6">
@@ -125,9 +110,7 @@
                                 <option>2-4 months</option>
                                 <option>More than 4 months</option>
                             </select>
-                            <div class="invalid-feedback">
-                                Please provide a valid project duration.
-                            </div>
+                            <div class="invalid-feedback">Please provide a valid project duration.</div>
                         </div>
 
                         <div class="col-12">
@@ -149,30 +132,30 @@
         </main>
     </div>
 
-
     <br>
 
     <div id="footer"></div>
 
-    <script>
-        // Dynamically load header and footer
-        fetch('./header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header').innerHTML = data;
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("cV7QcTIHLQUWH7tmg"); // Replace with your EmailJS User ID
+        })();
 
-                const logo = document.querySelector('.logo');
-                logo.src = window.location.pathname.includes('pages') ? '../images/JR Logo.png' : './images/JR Logo.png';
-            });
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        fetch('./footer.html').then(response => response.text()).then(data => {
-            document.getElementById('footer').innerHTML = data;
+            emailjs.sendForm('service_y8fwp38', 'template_c45abnw', this)
+                .then(function(response) {
+                    alert('SUCCESS! Email sent.');
+                }, function(error) {
+                    alert('FAILED... ' + JSON.stringify(error));
+                });
         });
     </script>
 
-    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="form-validation.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 
