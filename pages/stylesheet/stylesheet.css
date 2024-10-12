@@ -79,3 +79,32 @@ footer-content {
     line-height: 1.2;
     /* Reduce line height */
 }
+
+@media (max-width: 767.98px) {
+    /* Targets mobile devices */
+    .featurette {
+        display: contents;
+        /* Maintain this for mobile */
+    }
+    .col-md-5,
+    .col-md-7 {
+        width: 100%;
+        /* Make columns full width on mobile */
+        text-align: center;
+        /* Center text within columns */
+    }
+}
+
+@media (min-width: 768px) {
+    /* Targets medium and larger devices */
+    .featurette {
+        display: contents;
+        /* This allows flex properties of parent to work */
+    }
+    .col-md-5,
+    .col-md-7 {
+        text-align: center;
+        width: 100%;
+        /* Center text within columns */
+    }
+}
